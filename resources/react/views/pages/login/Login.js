@@ -81,7 +81,7 @@ const handleLogin = async (event) => {
     }
     else{
       storeUserData(resp);
-      navigate('/showContactUs');
+      navigate('/dashboard');
     }
    
   } catch (error) {
@@ -140,9 +140,9 @@ const handleLogin = async (event) => {
                         </CButton>
                       </CCol>
                       <CCol xs={6} className="text-right">
-                        <CButton color="link" className="px-0">
+                        <Link to='/forgotPassword' color="link" className="px-0">
                           Forgot password?
-                        </CButton>
+                        </Link>
                       </CCol>
                     </CRow>
                   </CForm>

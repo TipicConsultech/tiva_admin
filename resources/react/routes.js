@@ -3,6 +3,8 @@ import { getUserType } from './util/session';
 import { Route, Routes } from 'react-router-dom';
 // import EnquiryStatus from './views/pages/contactUs/EnquiryStatus';
 
+//Forgot password
+const ForgotPassword = React.lazy(() => import('./views/pages/Admin/resetLink'));
 
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'));
@@ -64,6 +66,7 @@ const UpdatePassword = React.lazy(() => import('./views/pages/Password/Newpasswo
 const Charts = React.lazy(() => import('./views/charts/Charts'));
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'));
 
+
 export default function fetchRoutes() {
   const user = getUserType();
   let routes = [];
@@ -75,6 +78,9 @@ export default function fetchRoutes() {
 
   if (user === 0) {
     routes = [
+      //forgot Password
+
+
       { path: '/', exact: true, name: 'Home', element: ContactUs },
       { path: '/dashboard', exact: true, name: 'Dashboard', element: Dashboard },
       { path: '/contactUs', name: 'ContactUs', element: ContactUs },
@@ -151,6 +157,7 @@ export default function fetchRoutes() {
       { path: '/updatepassword', name: 'Update Password', element: UpdatePassword },
     ];
   }
-  
+
+ 
   return routes;
 }

@@ -20,9 +20,8 @@ use App\Models\Inquiry;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\AdminController; 
 use App\Http\Controllers\CsvUploadController;
-
-
-
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\OtpController;
 
 // Public APIs
 Route::post('/register', [AuthController::class, 'register']);
@@ -33,6 +32,14 @@ Route::post('/scrapVehicle', [ContactUsController::class, 'store']);
 Route::post('/saveMultiEnquiry', [InquiryController::class, 'saveMultiEnquiry']);
 Route::get('/allCatalogs', [CatalogController::class, 'allCatalog']);
 Route::post('/upload-csv', [CsvUploadController::class, 'uploadCsv']);
+
+
+//Tiva Email
+// Route::get('/send-email', [MailController::class, 'index']);
+Route::post('/reset-password-link', [MailController::class, 'sendEmail']);
+Route::post('/resetPassword',[MailController::class, 'resetPassword']);
+Route::post('/send-otp', [OtpController::class, 'sendOtp']);
+Route::post('/verify-otp', [OtpController::class, 'verifyOtp']);
 
 
 // Secured APIs
